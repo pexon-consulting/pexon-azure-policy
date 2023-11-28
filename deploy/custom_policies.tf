@@ -212,6 +212,7 @@ resource "azurerm_policy_definition" "mandatory_tags" {
 
 
 # define the naming convention for all resources in Custom 
+# using wildcards: # for a single digit, ? for a single letter and * for general wildcard
 resource "azurerm_policy_definition" "naming_subscription" {
     name = "Naming Convention Subscriptions Custom"
     display_name = "Naming Convention Subscriptions Custom"
@@ -232,7 +233,7 @@ resource "azurerm_policy_definition" "naming_subscription" {
           {
             "not": {
               "field": "name",
-              "match": "FI-?_*"
+              "match": "FI-?_*" 
             }
           },
           {
@@ -248,6 +249,10 @@ resource "azurerm_policy_definition" "naming_subscription" {
     POLICY_RULE
 }
 
+## assuming a naming convention for resources, consisting of allowedLocations, and allowedResources
+# example: aewstprod001 or aew-vm-prod-001
+# aewprod001 would be audited here
+# using abbrevations from this microsoft link: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations
 resource "azurerm_policy_definition" "naming_resources_new" {
     name = "Naming Convention for Resources Custom"
     display_name = "Naming Convention for Resources Custom"
