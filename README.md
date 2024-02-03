@@ -6,13 +6,15 @@ A sample repository of best practices regarding Governance and Compliance in Azu
 
 ## Overview
 
-This project focuses on implementing Azure policies to ensure compliance with the CIS Microsoft Azure Foundations Benchmark 1.3.0 and the Microsoft Cloud Security Benchmark. In addition to these industry-standard benchmarks, the project includes custom policies for enforcing naming conventions and firewall configurations.
+This project focuses on implementing Azure policies to ensure compliance with the CIS Microsoft Azure Foundations Benchmark 1.4.0 and the Microsoft Cloud Security Benchmark. In addition to these industry-standard benchmarks, the project includes custom policies for enforcing naming conventions and firewall configurations.
 
 ## Authors 
--
--
--
+- [Hoangquan Chu](mailto:hoangquan.chu@pexon-consulting.de)
+- [Leon Garcia-Egge](mailto:leon.egge@pexon-consulting.de)
+- [Giuseppe Scalia](mailto:giuseppe.scalia@pexon-consulting.de)
+- [Jens Hamann](mailto:jens.hamann@pexon-consulting.de)
 - [Fabian Mirz](mailto:fabian.mirz@pexon-consulting.de)
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -26,7 +28,7 @@ This project focuses on implementing Azure policies to ensure compliance with th
 
 ## Introduction
 
-Azure policies are a crucial aspect of maintaining a secure and compliant cloud environment. This project leverages the CIS Microsoft Azure Foundations Benchmark 1.3.0 and the Microsoft Cloud Security Benchmark as a baseline for defining policies. Additionally, custom policies have been included to address specific naming conventions and firewall requirements.
+Azure policies are a crucial aspect of maintaining a secure and compliant cloud environment. This project leverages the CIS Microsoft Azure Foundations Benchmark 1.4.0 and the Microsoft Cloud Security Benchmark as a baseline for defining policies. Additionally, custom policies have been included to address specific naming conventions and firewall requirements.
 
 ## Azure Policy Definitions
 
