@@ -7,7 +7,7 @@ resource "azurerm_management_group_policy_assignment" "tnt_asc_default" {
   parameters = <<PARAMETERS
 {
   "allowedContainerImagesInKubernetesClusterEffect": {
-    "value": "${local.auditEffect}" 
+    "value": "${local.auditeffect}" 
   },
   "allowedContainerImagesInKubernetesClusterRegex": {
     "value": "${local.allowed_docker_images_regex_kubernetes}"

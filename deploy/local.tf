@@ -1,6 +1,5 @@
 locals {
   mgName = "TODO MG Name einfuegen"
-  auditEffect = "audit" # deny 
   allowed_docker_images_regexes = [
     "^deutzcore\\\\.azurecr\\\\.io/.+$",
     "^(docker\\\\.io/)?jboss/keycloak:.+$",
