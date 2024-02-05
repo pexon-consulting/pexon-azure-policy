@@ -1,10 +1,10 @@
 ## General location and resource types
-data "azurerm_policy_definition" "allowed_locations"{
+data "azurerm_policy_definition" "allowed_locations" {
   display_name = "Allowed locations"
   # west europe, us east, asia east
 }
 
-data "azurerm_policy_definition" "not_allowed_resource_types"{
+data "azurerm_policy_definition" "not_allowed_resource_types" {
   display_name = "Not allowed resource types"
 }
 
@@ -297,7 +297,7 @@ data "azurerm_policy_definition" "alert_administrative_operation" {
 
 data "azurerm_policy_definition" "k8s_policy_addon" {
   display_name = "Azure Policy Add-on for Kubernetes service (AKS) should be installed and enabled on your clusters"
-} 
+}
 
 data "azurerm_policy_definition" "k8s_allowed_images" {
   display_name = "Kubernetes cluster containers should only use allowed images"
@@ -305,7 +305,7 @@ data "azurerm_policy_definition" "k8s_allowed_images" {
 
 data "azurerm_policy_definition" "k8s_hostpath" {
   display_name = "Kubernetes cluster pod hostPath volumes should only use allowed host paths"
-} 
+}
 
 data "azurerm_policy_definition" "k8s_port_range" {
   display_name = "Kubernetes cluster pods should only use approved host network and port range"

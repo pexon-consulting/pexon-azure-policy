@@ -34,6 +34,6 @@ locals {
 
   allowed_docker_images_regex_kubernetes = join("|", local.allowed_docker_images_regexes)
 
-  auditeffect = "Audit" # Deny # Disabled
+  auditeffect            = "Audit"            # Deny # Disabled
   auditIfNotExistsEffect = "AuditIfNotExists" # Disabled
 }
