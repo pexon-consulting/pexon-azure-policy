@@ -1,12 +1,12 @@
 ## Usage: change the management group id as needed to set the scope
 
 resource "azurerm_policy_definition" "mysql_firewall_rules" {
-  name = "MySQL server should have firewall rules"
-  display_name = "MySQL server should have firewall rules"
-  description = "This policy ensures that firewall rules have been specified for MySQL Database resources."
+  name                = "MySQL server should have firewall rules"
+  display_name        = "MySQL server should have firewall rules"
+  description         = "This policy ensures that firewall rules have been specified for MySQL Database resources."
   management_group_id = data.azurerm_management_group.tenant.id
-  policy_type = "Custom"
-  mode = "All"
+  policy_type         = "Custom"
+  mode                = "All"
 
   metadata = <<METADATA
     {
@@ -43,12 +43,12 @@ POLICY_RULE
 }
 
 resource "azurerm_policy_definition" "postgres_firewall_rules" {
-  name = "PostgreSQL server should have firewall rules"
-  display_name = "PostgreSQL server should have firewall rules"
-  description = "This policy ensures that firewall rules have been specified for PostgreSQL Database resources."
+  name                = "PostgreSQL server should have firewall rules"
+  display_name        = "PostgreSQL server should have firewall rules"
+  description         = "This policy ensures that firewall rules have been specified for PostgreSQL Database resources."
   management_group_id = data.azurerm_management_group.tenant.id
-  policy_type = "Custom"
-  mode = "All"
+  policy_type         = "Custom"
+  mode                = "All"
 
   metadata = <<METADATA
     {
@@ -85,12 +85,12 @@ POLICY_RULE
 }
 
 resource "azurerm_policy_definition" "mariadb_firewall_rules" {
-  name = "MariaDB server should have firewall rules"
-  display_name = "MariaDB server should have firewall rules"
-  description = "This policy ensures that firewall rules have been specified for MariaDB Database resources."
+  name                = "MariaDB server should have firewall rules"
+  display_name        = "MariaDB server should have firewall rules"
+  description         = "This policy ensures that firewall rules have been specified for MariaDB Database resources."
   management_group_id = data.azurerm_management_group.tenant.id
-  policy_type = "Custom"
-  mode = "All"
+  policy_type         = "Custom"
+  mode                = "All"
 
   metadata = <<METADATA
     {
@@ -127,12 +127,12 @@ POLICY_RULE
 }
 
 resource "azurerm_policy_definition" "sa_lock_policy" {
-  name         = "Storage Account Lock"
-  display_name = "Ensure Storage Accounts have locks enabled"
-  description  = "This policy ensures that all Azure Storage Accounts have locks enabled."
+  name                = "Storage Account Lock"
+  display_name        = "Ensure Storage Accounts have locks enabled"
+  description         = "This policy ensures that all Azure Storage Accounts have locks enabled."
   management_group_id = data.azurerm_management_group.tenant.id
-  policy_type = "Custom"
-  mode = "All"
+  policy_type         = "Custom"
+  mode                = "All"
 
   metadata = <<METADATA
     {
@@ -162,21 +162,21 @@ METADATA
 
 ## define a custom azure policy to enforce the tags team and app for resources
 resource "azurerm_policy_definition" "mandatory_tags" {
-    name = "Mandatory Tags Custom"
-    display_name = "Mandatory Tags Custom"
-    description = "Force all Teams to set needed Tags for the Azure Resources"
-    management_group_id = data.azurerm_management_group.tenant.id
-    policy_type = "Custom"
-    mode = "Indexed" ## all Resources which support tags and locations are audited
-    metadata = <<METADATA
+  name                = "Mandatory Tags Custom"
+  display_name        = "Mandatory Tags Custom"
+  description         = "Force all Teams to set needed Tags for the Azure Resources"
+  management_group_id = data.azurerm_management_group.tenant.id
+  policy_type         = "Custom"
+  mode                = "Indexed" ## all Resources which support tags and locations are audited
+  metadata            = <<METADATA
         {
             "category" : "Tags"
         }
     METADATA
 
-    ## checking for the tags in all resources
-    ## change "effect" from audit to deny to enforce the tags during creation
-    policy_rule = <<POLICY_RULE
+  ## checking for the tags in all resources
+  ## change "effect" from audit to deny to enforce the tags during creation
+  policy_rule = <<POLICY_RULE
     {
         "if": {
             "anyOf": [
@@ -214,19 +214,19 @@ resource "azurerm_policy_definition" "mandatory_tags" {
 # define the naming convention for all resources in Custom 
 # using wildcards: # for a single digit, ? for a single letter and * for general wildcard
 resource "azurerm_policy_definition" "naming_subscription" {
-    name = "Naming Convention Subscriptions Custom"
-    display_name = "Naming Convention Subscriptions Custom"
-    description = "Force all Teams apply the naming convention to the Azure Subscriptions"
-    management_group_id = data.azurerm_management_group.tenant.id
-    policy_type = "Custom"
-    mode = "All" ## all Resources should be affected
-    metadata = <<METADATA
+  name                = "Naming Convention Subscriptions Custom"
+  display_name        = "Naming Convention Subscriptions Custom"
+  description         = "Force all Teams apply the naming convention to the Azure Subscriptions"
+  management_group_id = data.azurerm_management_group.tenant.id
+  policy_type         = "Custom"
+  mode                = "All" ## all Resources should be affected
+  metadata            = <<METADATA
         {
             "category" : "Naming"
         }
     METADATA
 
-    policy_rule = <<POLICY_RULE
+  policy_rule = <<POLICY_RULE
     {
       "if": {
         "allOf": [
@@ -254,19 +254,19 @@ resource "azurerm_policy_definition" "naming_subscription" {
 # aewprod001 would be audited here
 # using abbrevations from this microsoft link: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations
 resource "azurerm_policy_definition" "naming_resources_new" {
-    name = "Naming Convention for Resources Custom"
-    display_name = "Naming Convention for Resources Custom"
-    description = "Force all Teams apply the naming convention to the Azure Resources"
-    management_group_id = data.azurerm_management_group.tenant.id
-    policy_type = "Custom"
-    mode = "All" ## all Resources should be affected
-    metadata = <<METADATA
+  name                = "Naming Convention for Resources Custom"
+  display_name        = "Naming Convention for Resources Custom"
+  description         = "Force all Teams apply the naming convention to the Azure Resources"
+  management_group_id = data.azurerm_management_group.tenant.id
+  policy_type         = "Custom"
+  mode                = "All" ## all Resources should be affected
+  metadata            = <<METADATA
         {
             "category" : "Naming"
         }
     METADATA
 
-    parameters = <<PARAMETERS
+  parameters  = <<PARAMETERS
     {
         "allowedLocations": {
             "type": "Array",
@@ -612,7 +612,7 @@ resource "azurerm_policy_definition" "naming_resources_new" {
         }
     }
 PARAMETERS
-    policy_rule = <<POLICY_RULE
+  policy_rule = <<POLICY_RULE
     {
       "if": {
         "anyOf": [
@@ -701,20 +701,20 @@ PARAMETERS
 
 # enforce for all teams using vnets, that a custom routing is enabled and set
 resource "azurerm_policy_definition" "vnet_routing" {
-    name = "Enforce Routing VNET"
-    display_name = "Enforce Routing VNET"
-    description = "Force all Teams to set a custom routing table for the VNETs"
-    management_group_id = data.azurerm_management_group.tenant.id
-    policy_type = "Custom"
-    mode = "All" ## all Resources should be affected
-    metadata = <<METADATA
+  name                = "Enforce Routing VNET"
+  display_name        = "Enforce Routing VNET"
+  description         = "Force all Teams to set a custom routing table for the VNETs"
+  management_group_id = data.azurerm_management_group.tenant.id
+  policy_type         = "Custom"
+  mode                = "All" ## all Resources should be affected
+  metadata            = <<METADATA
         {
             "category" : "VNets"
         }
     METADATA
 
-    ## check if type is VNET and field routeTable exists, then audit 
-    policy_rule = <<POLICY_RULE
+  ## check if type is VNET and field routeTable exists, then audit 
+  policy_rule = <<POLICY_RULE
     {
       "if": {
 				"anyOf": [
