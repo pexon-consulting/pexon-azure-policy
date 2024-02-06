@@ -1,7 +1,7 @@
 locals {
   mgName = "TODO MG Name einfuegen"
   allowed_docker_images_regexes = [
-    "^deutzcore\\\\.azurecr\\\\.io/.+$",
+    "^core\\\\.azurecr\\\\.io/.+$",
     "^(docker\\\\.io/)?jboss/keycloak:.+$",
     "^(docker\\\\.io/)?hawkbit/hawkbit-update-server:.+$",
     "^mcr\\\\.microsoft\\\\.com/oss/azure/aad-pod-identity/mic:.+$",
